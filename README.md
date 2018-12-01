@@ -43,7 +43,12 @@ cd my-git-project
 
 ### Installation as a CLI
 
-1. Download the Talisman binary from the [Releases page](https://github.com/thoughtworks/talisman/releases) corresponding to your system type
+1. Download the Talisman binary using the `install-talisman.sh` with the `--binary-only` option
+```bash
+curl https://thoughtworks.github.io/talisman/install.sh > ./install-talisman.sh
+chmod +x ./install-talisman.sh
+./install-talisman.sh --binary-only
+```
 2. Place the binary somewhere (either directly in your repository, or by putting it somewhere in your system and adding it to your `$PATH`)
 3. Run talisman with the `--pattern` argument (matches glob-like patterns, [see more](https://github.com/bmatcuk/doublestar#patterns))
 ```bash

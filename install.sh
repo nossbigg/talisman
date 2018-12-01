@@ -189,7 +189,21 @@ run() {
     echo -ne $(tput sgr0)
   }
 
-  if [ ! -d "./.git" ]; then
+  download_binary_only() {
+    download_and_verify
+
+    cp $DOWNLOADED_BINARY .
+    chmod +x ./talisman
+
+    echo -ne $(tput setaf 2)
+    echo "Talisman successfully downloaded to current directory"
+    echo -ne $(tput sgr0)
+  }
+
+  SECOND_ARG=$2
+  if [[ "$SECOND_ARG" == "--binary-only" ]]; then
+    download_binary_only
+  elif [ ! -d "./.git" ]; then
     install_to_git_templates
   else
     install_to_repo
